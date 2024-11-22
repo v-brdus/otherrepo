@@ -209,11 +209,11 @@ jobs:
           files: ./src/ContosoTraders.Api.Products/Manifests/Ingress.yaml
         env:
           AKS_FQDN: ${{ steps.get-aks-fqdn.outputs.aksFqdn }}
-      - name: apply ingress manifest
-        uses: Azure/k8s-deploy@v4
-        with:
-          manifests: ./src/ContosoTraders.Api.Products/Manifests/Ingress.yaml
-          force: true
+     # - name: apply ingress manifest
+     #   uses: Azure/k8s-deploy@v4
+     #   with:
+     #     manifests: ./src/ContosoTraders.Api.Products/Manifests/Ingress.yaml
+     #     force: true
       - name: apply clusterRole manifest
         uses: Azure/k8s-deploy@v4
         with:
