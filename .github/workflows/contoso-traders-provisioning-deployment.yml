@@ -162,10 +162,10 @@ jobs:
             --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
             --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux \
             --set controller.service.externalTrafficPolicy=Local
-      - name: set dns label on public ip
-        uses: azure/CLI@v1
-        with:
-          inlineScript: az network public-ip update --dns-name ${{ env.AKS_DNS_LABEL }}${{ secrets.ENVIRONMENT }} -g contoso-traders-aks-nodes-rg -n $(az network public-ip list --query "[?starts_with(name,'kubernetes-') ].name" -o tsv -g ${{ env.AKS_NODES_RESOURCE_GROUP_NAME }}${{ secrets.ENVIRONMENT }})
+     # - name: set dns label on public ip
+     #   uses: azure/CLI@v1
+     #   with:
+     #     inlineScript: az network public-ip update --dns-name ${{ env.AKS_DNS_LABEL }}${{ secrets.ENVIRONMENT }} -g contoso-traders-aks-nodes-rg -n $(az network public-ip list --query "[?starts_with(name,'kubernetes-') ].name" -o tsv -g ${{ env.AKS_NODES_RESOURCE_GROUP_NAME }}${{ secrets.ENVIRONMENT }})
       # hack: extract the full fqdn / dns label of the aks app's public IP address
       - name: get aks-fqdn
         uses: azure/CLI@v1
