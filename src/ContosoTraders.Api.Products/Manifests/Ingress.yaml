@@ -23,6 +23,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: contoso-traders-products
+                name: contoso-traders-products54321
                 port:
                   number: 80
